@@ -22,6 +22,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: build-artifacts
+          path: dist
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 

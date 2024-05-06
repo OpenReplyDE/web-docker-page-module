@@ -36,10 +36,13 @@ jobs:
         with:
           name: build-artifacts
           path: dist
-      - uses: shallwefootball/s3-upload-action@master
+      - uses:  Noelware/s3-action@2
         with:
-          aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
-          aws_bucket: ${{ vars.AWS_BUCKET }}
-          source_dir: 'dist'
-          destination_dir: 'web-assets/page-module'
+          access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          secret-key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+          bucket: ${{ vars.AWS_BUCKET }}
+          endpoint: s3.amazonaws.com
+          region: us-east-1
+          prefix: /web-assets/page-module
+          directories: dist
+          path-format: '/$(file)'

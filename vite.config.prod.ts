@@ -20,6 +20,11 @@ export default defineConfig(({ mode }) => {
     base,
     build: {
       outDir: "dist",
+      rollupOptions: {
+        input: {
+          index: fileURLToPath(new URL("./src/page-module.ts", import.meta.url)),
+        },
+      }
     },
     resolve: {
       alias: {

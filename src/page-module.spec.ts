@@ -12,6 +12,6 @@ describe("Page module", () => {
   it("renders page module", async () => {
     const container = dom();
 
-    expect(getByText(container, "This is a page module")).toBeTruthy();
+    expect(getByText(container, "Page Module")).toBeTruthy();
   });
 });

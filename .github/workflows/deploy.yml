@@ -12,13 +12,17 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 20
+          registry-url: https://npm.pkg.github.com/
+          scope: '@openreplyde'
       - run: npm ci
       - run: npm test
       - run: npm run build
       - uses: actions/upload-artifact@v3
         with:
           name: build-artifacts
-          path: dist
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
 
   publish-s3:
     needs: build

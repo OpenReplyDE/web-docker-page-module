@@ -36,7 +36,7 @@ jobs:
         with:
           name: build-artifacts
           path: dist
-      - uses:  Noelware/s3-action@v2.2.0
+      - uses:  Noelware/s3-action@v2.2.6
         with:
           access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           secret-key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}

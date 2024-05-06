@@ -1,9 +1,11 @@
+
+export const html = `
+  <h1>Page Module</h1>
+  <p>This is a page module</p>
+`;
 class PageModule extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = `
-      <h1>Page Module</h1>
-      <p>This is a page module</p>
-    `;
+    this.innerHTML = html;
   }
 }
 
